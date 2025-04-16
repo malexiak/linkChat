@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Autoryzacja zakończona</title>
+</head>
+<body>
+  <h2>Logowanie zakończone. Wracanie do aplikacji...</h2>
+  <script>
+    const fragment = window.location.hash;
+
+    if (fragment.includes("access_token")) {
+      const newUrl = "linkchat://auth" + fragment;
+      window.location.href = newUrl;
+    } else {
+      document.body.innerHTML = "<h2>Nie udało się uzyskać tokenu</h2>";
+    }
+  </script>
+</body>
+</html>
