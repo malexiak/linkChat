@@ -10,9 +10,10 @@
   window.addEventListener("load", function () {
     setTimeout(() => {
       const fragment = window.location.hash;
-
+      
       if (fragment && fragment.includes("access_token=")) {
         const newUrl = "linkchat://auth" + fragment.replace("#", "?");
+        console.log("Fragment:", fragment);
         window.location.href = newUrl;
       } else {
         document.body.innerHTML = "<h2>Nie udało się uzyskać tokenu</h2>";
