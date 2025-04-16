@@ -7,14 +7,14 @@
 <body>
   <h2>Logowanie zakończone. Wracanie do aplikacji...</h2>
   <script>
-    const fragment = window.location.hash;
+  const fragment = window.location.hash;
 
-    if (fragment.includes("access_token")) {
-      const newUrl = "linkchat://auth" + fragment;
-      window.location.href = newUrl;
-    } else {
-      document.body.innerHTML = "<h2>Nie udało się uzyskać tokenu</h2>";
-    }
-  </script>
+  if (fragment.includes("access_token")) {
+    const newUrl = "linkchat://auth" + fragment.replace("#", "?");
+    window.location.href = newUrl;
+  } else {
+    document.body.innerHTML = "<h2>Nie udało się uzyskać tokenu</h2>";
+  }
+</script>
 </body>
 </html>
